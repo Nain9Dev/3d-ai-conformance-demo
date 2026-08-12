@@ -7,6 +7,7 @@ import time
 
 # Importamos nuestros nuevos módulos de Producción
 from ai_module.classifier import predict
+from ai_module.predictive_engine import LocalLLMPredictor
 from geometry_engine.validator import evaluate_contract
 
 st.set_page_config(page_title="AI-Driven 3D Conformance", layout="wide", initial_sidebar_state="expanded")
@@ -68,12 +69,45 @@ with col2:
             mesh = trimesh.load(tmp_path, process=False)
             
             st.write("### 🤖 La IA Propone")
-            with st.spinner("Extrayendo Features Geométricas & ML Inferencia..."):
-                # Ejecutamos el modelo ML Real
-                prediction, confidence = predict(mesh)
+            with st.spinner("Extrayendo Metadatos y Consultando LLM..."):
+                # 1. Extracción de metadatos reales del modelo subido
+                try:
+                    bbox = mesh.extents.tolist() if hasattr(mesh, "extents") else [0,0,0]
+                    if hasattr(mesh, "vertices"):
+                        vertices = len(mesh.vertices)
+                    elif hasattr(mesh, "geometry"):
+                        vertices = sum([len(g.vertices) for g in mesh.geometry.values() if hasattr(g, 'vertices')])
+                    else:
+                        vertices = 0
+                        
+                    is_watertight = mesh.is_watertight if hasattr(mesh, "is_watertight") else False
+                except:
+                    bbox, vertices, is_watertight = [0,0,0], 0, False
                 
-            st.success(f"Predicción Categórica: **{prediction}**")
-            st.metric(label="Confianza ML", value=f"{confidence*100:.1f}%")
+                metadata = {
+                    "bounding_box_dimensions": bbox,
+                    "num_vertices": vertices,
+                    "is_watertight": is_watertight
+                }
+                
+                # 2. Intentamos Inferencia con LLM Local (Ollama)
+                engine = LocalLLMPredictor(model_name="qwen2.5-coder:32b")
+                proposal = engine.predict(metadata)
+                
+                if proposal.get("categoria_propuesta") not in ["Error", "Unknown"]:
+                    prediction = proposal["categoria_propuesta"]
+                    confidence = proposal.get("confianza", 0) / 100.0
+                    motivo = proposal.get("motivo", "")
+                    
+                    st.success(f"Predicción (Ollama LLM): **{prediction}**")
+                    st.info(f"Razonamiento: {motivo}")
+                else:
+                    # 3. Fallback al ML Clásico (Scikit-Learn) si Ollama no está disponible (ej. en la nube)
+                    st.warning("No se pudo contactar a Ollama. Usando motor Random Forest de respaldo...")
+                    prediction, confidence = predict(mesh)
+                    st.success(f"Predicción (ML Clásico): **{prediction}**")
+                
+            st.metric(label="Confianza de la IA", value=f"{confidence*100:.1f}%")
                 
             st.write("---")
             st.write("### 📐 El Contrato Dispone")
