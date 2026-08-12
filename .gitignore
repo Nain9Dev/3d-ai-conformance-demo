@@ -1,0 +1,35 @@
+# Entornos Virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de Entorno y Secretos (Seguridad Crítica)
+.env
+.env.local
+.env.*
+secrets.toml
+*.pem
+*.key
+
+# Modelos ML generados (Se generan on-the-fly, no subir)
+*.joblib
+*.pkl
+*.pth
+*.pt
+
+# Modelos 3D propietarios (Para que no te roben los assets)
+*.glb
+*.gltf
+*.obj
+*.fbx
+assets/
+
+# Archivos del SO
+.DS_Store
+Thumbs.db
