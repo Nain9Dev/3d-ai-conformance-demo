@@ -1,0 +1,11 @@
+{
+  "name": "CJBR Fachadas",
+  "short_name": "CJBR",
+  "description": "Fachadas ventiladas, muro cortina y cerramientos de edificación en Madrid y toda España.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f3f0",
+  "theme_color": "#14181b",
+  "lang": "es",
+  "icons": [{ "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
