@@ -1,0 +1,16 @@
+{
+  "name": "web-de-fachadas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rediseño front-end de cjbrfachadas.com — sitio estático sin dependencias en producción.",
+  "type": "module",
+  "scripts": {
+    "art": "node tools/generate-art.mjs",
+    "build": "node tools/generate-art.mjs && node tools/build.mjs",
+    "dev": "python3 -m http.server 4321",
+    "shots": "node tools/shots.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  }
+}

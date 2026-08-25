@@ -128,7 +128,7 @@
   <div class="container">
     <div class="hero__inner">
       <div class="hero__content">
-        <p class="eyebrow">Madrid · Obra en todo el territorio nacional</p>
+        <p class="eyebrow">Madrid · Obra en toda España</p>
         <h1 class="hero__title">
           La piel del edificio,<br>
           resuelta <span class="accent">al milímetro</span>.
@@ -303,97 +303,113 @@
 
     <div class="system">
       <div class="system__figure" data-reveal>
-        <svg viewBox="0 0 520 430" role="img" aria-labelledby="sec-title sec-desc">
+        <svg viewBox="0 0 560 450" role="img" aria-labelledby="sec-title sec-desc">
           <title id="sec-title">Sección constructiva de una fachada ventilada</title>
-          <desc id="sec-desc">De interior a exterior: muro soporte, aislamiento térmico, cámara de aire ventilada, subestructura de aluminio, anclajes y panel de revestimiento.</desc>
+          <desc id="sec-desc">De interior a exterior: muro soporte, aislamiento térmico, cámara de aire ventilada, subestructura de aluminio, anclajes regulables y panel de revestimiento.</desc>
           <defs>
-            <pattern id="hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
-              <line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" stroke-width="1.4" opacity="0.35"/>
+            <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="0" x2="0" y2="9" stroke="currentColor" stroke-width="1.6" opacity="0.45"/>
             </pattern>
-            <pattern id="wool" width="14" height="10" patternUnits="userSpaceOnUse">
-              <path d="M0 5 Q3.5 0 7 5 T14 5" fill="none" stroke="#b8862a" stroke-width="1.3" opacity="0.75"/>
+            <pattern id="wool" width="16" height="11" patternUnits="userSpaceOnUse">
+              <path d="M0 5.5 Q4 0 8 5.5 T16 5.5" fill="none" stroke="#a8761f" stroke-width="1.5" opacity="0.9"/>
             </pattern>
-            <linearGradient id="panelG" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#9aa2aa"/><stop offset="100%" stop-color="#6d757d"/>
+            <linearGradient id="panelG" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#aab2ba"/><stop offset="100%" stop-color="#69717a"/>
+            </linearGradient>
+            <linearGradient id="camG" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#3d8fa6" stop-opacity="0.03"/>
+              <stop offset="100%" stop-color="#3d8fa6" stop-opacity="0.20"/>
             </linearGradient>
           </defs>
 
-          <!-- Muro soporte -->
-          <g data-layer-target="soporte" style="transition:opacity 300ms">
-            <rect x="40" y="40" width="72" height="350" fill="currentColor" opacity="0.10"/>
-            <rect x="40" y="40" width="72" height="350" fill="url(#hatch)" color="currentColor"/>
-            <rect x="40" y="40" width="72" height="350" fill="none" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
+          <!-- Rótulos de orientación -->
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="currentColor" opacity="0.5">
+            <text x="46" y="24" letter-spacing="1.5">INTERIOR</text>
+            <text x="330" y="24" letter-spacing="1.5" text-anchor="end">EXTERIOR</text>
+          </g>
+          <line x1="46" y1="30" x2="330" y2="30" stroke="currentColor" stroke-opacity="0.2"/>
+
+          <!-- 01 Muro soporte -->
+          <g data-layer-target="soporte">
+            <rect x="46" y="38" width="96" height="362" fill="currentColor" opacity="0.13"/>
+            <rect x="46" y="38" width="96" height="362" fill="url(#hatch)" color="currentColor"/>
+            <rect x="46" y="38" width="96" height="362" fill="none" stroke="currentColor" stroke-opacity="0.55" stroke-width="1.6"/>
+            <rect class="hl" x="44" y="36" width="100" height="366" rx="3" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
           </g>
 
-          <!-- Aislamiento -->
-          <g data-layer-target="aislamiento" style="transition:opacity 300ms">
-            <rect x="112" y="40" width="46" height="350" fill="#e8c77a" opacity="0.35"/>
-            <rect x="112" y="40" width="46" height="350" fill="url(#wool)"/>
-            <rect x="112" y="40" width="46" height="350" fill="none" stroke="#b8862a" stroke-width="1.2" opacity="0.8"/>
+          <!-- 02 Aislamiento continuo -->
+          <g data-layer-target="aislamiento">
+            <rect x="142" y="38" width="58" height="362" fill="#e8c77a" opacity="0.42"/>
+            <rect x="142" y="38" width="58" height="362" fill="url(#wool)"/>
+            <rect x="142" y="38" width="58" height="362" fill="none" stroke="#a8761f" stroke-width="1.4" opacity="0.85"/>
+            <rect class="hl" x="140" y="36" width="62" height="366" rx="3" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
           </g>
 
-          <!-- Cámara ventilada + flujo de aire -->
-          <g data-layer-target="camara" style="transition:opacity 300ms">
-            <rect x="158" y="40" width="72" height="350" fill="#5fa8bd" opacity="0.10"/>
-            <g stroke="#3d8fa6" stroke-width="2" fill="none" stroke-linecap="round">
-              <path d="M176 372 V 96"><animate attributeName="stroke-dasharray" values="0 300;120 300;0 300" dur="4s" repeatCount="indefinite"/></path>
-              <path d="M212 372 V 96"><animate attributeName="stroke-dasharray" values="0 300;120 300;0 300" dur="4s" begin="1.2s" repeatCount="indefinite"/></path>
-              <path d="M170 104 l6-10 6 10"/>
-              <path d="M206 104 l6-10 6 10"/>
+          <!-- 03 Cámara ventilada -->
+          <g data-layer-target="camara">
+            <rect x="200" y="38" width="96" height="362" fill="url(#camG)"/>
+            <g stroke="#2f8299" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M224 384 V 92"><animate attributeName="stroke-dasharray" values="0 320;140 320;0 320" dur="4.5s" repeatCount="indefinite"/></path>
+              <path d="M276 384 V 92"><animate attributeName="stroke-dasharray" values="0 320;140 320;0 320" dur="4.5s" begin="1.4s" repeatCount="indefinite"/></path>
+              <path d="M217 101 l7-11 7 11"/>
+              <path d="M269 101 l7-11 7 11"/>
             </g>
-            <text x="194" y="412" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#3d8fa6">efecto chimenea</text>
+            <text x="248" y="424" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" fill="#2f8299">efecto chimenea</text>
+            <rect class="hl" x="198" y="36" width="100" height="366" rx="3" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
           </g>
 
-          <!-- Subestructura -->
-          <g data-layer-target="subestructura" style="transition:opacity 300ms">
-            <rect x="196" y="40" width="14" height="350" fill="#8e979f"/>
-            <rect x="196" y="40" width="14" height="350" fill="none" stroke="currentColor" stroke-opacity="0.45"/>
-            <g fill="#8e979f">
-              <rect x="158" y="92" width="42" height="11" rx="2"/>
-              <rect x="158" y="200" width="42" height="11" rx="2"/>
-              <rect x="158" y="308" width="42" height="11" rx="2"/>
+          <!-- 04 Subestructura -->
+          <g data-layer-target="subestructura">
+            <rect x="250" y="38" width="20" height="362" fill="#8d959d"/>
+            <rect x="250" y="38" width="7" height="362" fill="#ffffff" opacity="0.22"/>
+            <rect x="250" y="38" width="20" height="362" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+            <g fill="#8d959d" stroke="currentColor" stroke-opacity="0.4">
+              <rect x="200" y="96" width="52" height="14" rx="2"/>
+              <rect x="200" y="212" width="52" height="14" rx="2"/>
+              <rect x="200" y="328" width="52" height="14" rx="2"/>
             </g>
+            <rect class="hl" x="196" y="90" width="78" height="312" rx="3" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
           </g>
 
-          <!-- Anclajes -->
-          <g data-layer-target="anclajes" style="transition:opacity 300ms">
+          <!-- 05 Anclajes -->
+          <g data-layer-target="anclajes">
+            <g stroke="var(--accent)" stroke-width="3.2" stroke-linecap="round">
+              <path d="M120 103 H 204"/><path d="M120 219 H 204"/><path d="M120 335 H 204"/>
+            </g>
             <g fill="var(--accent)">
-              <circle cx="122" cy="97" r="5"/><circle cx="122" cy="205" r="5"/><circle cx="122" cy="313" r="5"/>
+              <circle cx="120" cy="103" r="6"/><circle cx="120" cy="219" r="6"/><circle cx="120" cy="335" r="6"/>
             </g>
-            <g stroke="var(--accent)" stroke-width="2">
-              <path d="M112 97 H 132"/><path d="M112 205 H 132"/><path d="M112 313 H 132"/>
-            </g>
+            <rect class="hl" x="110" y="90" width="100" height="258" rx="3" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
           </g>
 
-          <!-- Revestimiento -->
-          <g data-layer-target="revestimiento" style="transition:opacity 300ms">
-            <rect x="230" y="40" width="26" height="110" fill="url(#panelG)"/>
-            <rect x="230" y="156" width="26" height="110" fill="url(#panelG)"/>
-            <rect x="230" y="272" width="26" height="118" fill="url(#panelG)"/>
-            <g fill="none" stroke="currentColor" stroke-opacity="0.35">
-              <rect x="230" y="40" width="26" height="110"/>
-              <rect x="230" y="156" width="26" height="110"/>
-              <rect x="230" y="272" width="26" height="118"/>
+          <!-- 06 Revestimiento -->
+          <g data-layer-target="revestimiento">
+            <rect x="296" y="38" width="34" height="112" fill="url(#panelG)"/>
+            <rect x="296" y="158" width="34" height="112" fill="url(#panelG)"/>
+            <rect x="296" y="278" width="34" height="122" fill="url(#panelG)"/>
+            <g fill="none" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.4">
+              <rect x="296" y="38" width="34" height="112"/>
+              <rect x="296" y="158" width="34" height="112"/>
+              <rect x="296" y="278" width="34" height="122"/>
             </g>
+            <rect class="hl" x="294" y="36" width="38" height="366" rx="3" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
           </g>
 
-          <!-- Acotación / etiquetas -->
-          <g font-family="IBM Plex Mono, monospace" font-size="11.5" fill="currentColor" opacity="0.75">
-            <line x1="290" y1="70" x2="316" y2="70" stroke="currentColor" stroke-opacity="0.3"/>
-            <text x="300" y="66">01 · Muro soporte</text>
-            <text x="300" y="112">02 · Aislamiento continuo</text>
-            <text x="300" y="158">03 · Cámara ventilada</text>
-            <text x="300" y="204">04 · Subestructura de aluminio</text>
-            <text x="300" y="250">05 · Anclaje regulable</text>
-            <text x="300" y="296">06 · Panel de revestimiento</text>
+          <!-- Acotación -->
+          <g stroke="currentColor" stroke-opacity="0.22" stroke-dasharray="3 4">
+            <path d="M94 62 H 356"/><path d="M171 108 H 356"/><path d="M248 154 H 356"/>
+            <path d="M260 200 H 356"/><path d="M120 246 H 356"/><path d="M313 292 H 356"/>
           </g>
-          <g stroke="currentColor" stroke-opacity="0.25" stroke-dasharray="3 4">
-            <path d="M76 58 H 296"/><path d="M135 104 H 296"/><path d="M194 150 H 296"/>
-            <path d="M203 196 H 296"/><path d="M122 242 H 296"/><path d="M243 288 H 296"/>
+          <g font-family="IBM Plex Mono, monospace" font-size="12" fill="currentColor" opacity="0.78">
+            <text x="362" y="66">01 · Muro soporte</text>
+            <text x="362" y="112">02 · Aislamiento continuo</text>
+            <text x="362" y="158">03 · Cámara ventilada</text>
+            <text x="362" y="204">04 · Subestructura</text>
+            <text x="362" y="250">05 · Anclaje regulable</text>
+            <text x="362" y="296">06 · Revestimiento</text>
           </g>
 
-          <!-- Suelo -->
-          <line x1="30" y1="390" x2="270" y2="390" stroke="currentColor" stroke-opacity="0.5" stroke-width="2"/>
+          <line x1="34" y1="400" x2="344" y2="400" stroke="currentColor" stroke-opacity="0.55" stroke-width="2.5"/>
         </svg>
       </div>
 
@@ -575,7 +591,7 @@
         data-title="Alea Homes" data-meta="Madrid · Fachada ventilada de panel composite"
         data-body="Montaje de la envolvente completa de las viviendas Alea Homes: subestructura de aluminio, aislamiento continuo de lana mineral y revestimiento de panel composite en bandeja con fijación oculta. Despiece coordinado con los huecos de carpintería para que ninguna junta cayera en el dintel."
         data-specs="Material: Panel composite 4 mm|Superficie: 3.400 m²|Sistema: Bandeja, fijación oculta|Plazo: 14 semanas">
-        <div class="project__media"><img src="assets/img/project-alea.svg" alt="Fachada ventilada de panel composite en el edificio Alea Homes" loading="lazy" width="1200" height="900"></div>
+        <div class="project__media"><img src="assets/img/project-alea.svg" alt="Fachada ventilada de panel composite en el edificio Alea Homes" loading="lazy" width="1600" height="900"></div>
         <span class="project__cta" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
         </span>
@@ -590,7 +606,7 @@
         data-title="Ahorramás" data-meta="Madrid · Fachada ventilada de panel fenólico"
         data-body="Envolvente para superficie comercial con panel fenólico HPL de alta resistencia al impacto en las zonas de acceso y muelle de carga. Trabajo ejecutado con el establecimiento en funcionamiento, en horario compatible con la actividad."
         data-specs="Material: Panel fenólico 8 mm|Superficie: 1.150 m²|Sistema: Remache lacado a color|Plazo: 7 semanas">
-        <div class="project__media"><img src="assets/img/project-ahorramas.svg" alt="Fachada ventilada de panel fenólico en superficie comercial Ahorramás" loading="lazy" width="1600" height="900"></div>
+        <div class="project__media"><img src="assets/img/project-ahorramas.svg" alt="Fachada ventilada de panel fenólico en superficie comercial Ahorramás" loading="lazy" width="1200" height="900"></div>
         <span class="project__cta" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
         </span>
