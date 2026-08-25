@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 640" role="img" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.20"/>
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.16"/>
+    </linearGradient>
+    <linearGradient id="raking" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.22"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="640" fill="#372d21"/>
+  <rect x="4.4" y="4.4" width="191.2" height="311.2" fill="#8a7359"/>
+  <rect x="4.4" y="4.4" width="191.2" height="311.2" fill="url(#sheen)" opacity="0.6"/>
+  <circle cx="16.4" cy="16.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="183.6" cy="16.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="16.4" cy="303.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="183.6" cy="303.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <rect x="204.4" y="4.4" width="191.2" height="311.2" fill="#8a7359"/>
+  <rect x="204.4" y="4.4" width="191.2" height="311.2" fill="url(#sheen)" opacity="0.6"/>
+  <circle cx="216.4" cy="16.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="383.6" cy="16.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="216.4" cy="303.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="383.6" cy="303.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <rect x="404.4" y="4.4" width="191.2" height="311.2" fill="#5e4c39"/>
+  <rect x="404.4" y="4.4" width="191.2" height="311.2" fill="url(#sheen)" opacity="0.6"/>
+  <circle cx="416.4" cy="16.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="583.6" cy="16.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="416.4" cy="303.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="583.6" cy="303.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <rect x="604.4" y="4.4" width="191.2" height="311.2" fill="#8a7359"/>
+  <rect x="604.4" y="4.4" width="191.2" height="311.2" fill="url(#sheen)" opacity="0.6"/>
+  <circle cx="616.4" cy="16.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="783.6" cy="16.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="616.4" cy="303.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="783.6" cy="303.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <rect x="4.4" y="324.4" width="191.2" height="311.2" fill="#756047"/>
+  <rect x="4.4" y="324.4" width="191.2" height="311.2" fill="url(#sheen)" opacity="0.6"/>
+  <circle cx="16.4" cy="336.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="183.6" cy="336.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="16.4" cy="623.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="183.6" cy="623.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <rect x="204.4" y="324.4" width="191.2" height="311.2" fill="#8a7359"/>
+  <rect x="204.4" y="324.4" width="191.2" height="311.2" fill="url(#sheen)" opacity="0.6"/>
+  <circle cx="216.4" cy="336.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="383.6" cy="336.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="216.4" cy="623.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="383.6" cy="623.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <rect x="404.4" y="324.4" width="191.2" height="311.2" fill="#5e4c39"/>
+  <rect x="404.4" y="324.4" width="191.2" height="311.2" fill="url(#sheen)" opacity="0.6"/>
+  <circle cx="416.4" cy="336.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="583.6" cy="336.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="416.4" cy="623.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="583.6" cy="623.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <rect x="604.4" y="324.4" width="191.2" height="311.2" fill="#756047"/>
+  <rect x="604.4" y="324.4" width="191.2" height="311.2" fill="url(#sheen)" opacity="0.6"/>
+  <circle cx="616.4" cy="336.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="783.6" cy="336.4" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="616.4" cy="623.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <circle cx="783.6" cy="623.6" r="2.4" fill="#b9a181" opacity="0.65"/>
+  <rect width="800" height="640" fill="url(#raking)"/>
+</svg>

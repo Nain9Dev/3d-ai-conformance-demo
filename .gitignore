@@ -28,7 +28,9 @@ secrets.toml
 *.gltf
 *.obj
 *.fbx
-assets/
+# Solo la carpeta assets/ de la raiz (modelos 3D). Las carpetas assets/ de los
+# proyectos web de renovaciones-de-web/ si deben versionarse.
+/assets/
 
 # Archivos del SO
 .DS_Store
