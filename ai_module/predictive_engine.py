@@ -5,7 +5,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
 class LocalLLMPredictor:
-    def __init__(self, host="http://localhost:11434", model_name="qwen2.5-coder"):
+    def __init__(self, host="http://localhost:11434", model_name="qwen2.5-coder:32b"):
         """
         Inicializa el motor predictivo conectado a Ollama local.
         """
@@ -52,7 +52,7 @@ class LocalLLMPredictor:
         }
 
         try:
-            response = requests.post(self.endpoint, json=payload, timeout=30)
+            response = requests.post(self.endpoint, json=payload, timeout=120)
             response.raise_for_status()
             
             # Extraer el texto generado por Ollama
@@ -69,7 +69,10 @@ class LocalLLMPredictor:
             return prediction_data
 
         except requests.exceptions.RequestException as e:
-            logging.error(f"Error de conexión con Ollama en {self.endpoint}: {e}")
+            error_details = ""
+            if hasattr(e, 'response') and e.response is not None:
+                error_details = e.response.text
+            logging.error(f"Error de conexión con Ollama en {self.endpoint}: {e} - Detalles: {error_details}")
             return {"categoria_propuesta": "Error", "confianza": 0, "motivo": str(e)}
         except json.JSONDecodeError as e:
             logging.error(f"Ollama no devolvió un JSON válido: {e}\nRespuesta cruda: {result_text}")
@@ -105,8 +108,8 @@ if __name__ == "__main__":
         "is_watertight": False
     }
 
-    print("Iniciando Motor Predictivo Local (Ollama: qwen2.5-coder)")
-    engine = LocalLLMPredictor(model_name="qwen2.5-coder")
+    print("Iniciando Motor Predictivo Local (Ollama: qwen2.5-coder:32b)")
+    engine = LocalLLMPredictor(model_name="qwen2.5-coder:32b")
     
     print("\nEnviando metadata 3D a la IA...")
     proposal_json = engine.predict(dummy_metadata)
@@ -114,5 +117,5 @@ if __name__ == "__main__":
     print("\nPropuesta cruda de la IA (JSON):")
     print(json.dumps(proposal_json, indent=2, ensure_ascii=False))
     
-    print("\n⚖️ Evaluando el Contrato:")
+    print("\nEvaluando el Contrato:")
     validate_llm_proposal(proposal_json)

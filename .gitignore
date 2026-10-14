@@ -33,3 +33,9 @@ assets/
 # Archivos del SO
 .DS_Store
 Thumbs.db
+
+# Frontend
+node_modules/
+dist/
+dist-ssr/
+*.tsbuildinfo
