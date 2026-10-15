@@ -29,6 +29,7 @@ secrets.toml
 *.obj
 *.fbx
 assets/
+!Nain3D.Client/public/samples/*.glb
 
 # Archivos del SO
 .DS_Store
