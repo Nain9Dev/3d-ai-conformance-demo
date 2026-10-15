@@ -1,5 +1,6 @@
 # Nain3D Gateway · 3D AI Conformance Engine
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-3d.naindev.com-0284c7?style=flat-square&logo=google-chrome&logoColor=white)](https://3d.naindev.com/)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Pydantic v2](https://img.shields.io/badge/Pydantic-v2.10-E92063?logo=pydantic&logoColor=white)](https://docs.pydantic.dev/)
@@ -22,7 +23,7 @@ Forma parte del portafolio técnico de [naindev.com](https://www.naindev.com) ba
 
 | Quiero… | Dónde |
 |:---|:---|
-| **Explorar el visor 3D interactivo** | `Nain3D.Client` en [http://localhost:5376](http://localhost:5376) (inspección 3D orbital, subida drag-and-drop y veredictos en tiempo real) |
+| **Explorar el visor 3D interactivo** | Demo en vivo en [https://3d.naindev.com](https://3d.naindev.com) o local en `http://localhost:5376` (inspección 3D orbital, subida drag-and-drop y veredictos en tiempo real) |
 | **Consultar la documentación OpenAPI** | [Scalar API Reference](http://localhost:8104/docs) en `/docs` |
 | **Probar modelos sintéticos sin archivos** | Drawer integrado con 4 modelos de referencia (Monitor, Silla, Válvula Industrial y Silla Gigante No Conforme) |
 | **Verificar la suite de pruebas** | `pytest tests/ -v` (9/9 pruebas unitarias y de integración pasando) |
