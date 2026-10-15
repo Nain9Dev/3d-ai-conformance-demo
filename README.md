@@ -31,26 +31,32 @@ Forma parte del portafolio técnico de [naindev.com](https://www.naindev.com) ba
 
 ---
 
-## Arquitectura
+## Arquitectura y Diagrama C4
 
-```text
-Browser Client (Vue 3 + TypeScript + Google <model-viewer> en puerto 5376)
-  │
-  ├── Reverse Proxy (Vite Dev Server) -> http://localhost:8104
-  │
-FastAPI Host (Uvicorn en puerto 8104)
-  ├── Scalar OpenAPI Documentation (/docs)
-  ├── Sondas de salud (/health, /health/ready)
-  └── Conformance API (/api/v1/conformance/...)
-        │
-        ├── Subsistema de Clasificación IA (Random Forest + Fallback Ollama LLM)
-        │     └── Propuesta de categoría y confianza ("La IA Propone")
-        │
-        └── Motor Geométrico Determinista (Trimesh & NumPy)
-              ├── Extracción de características (triángulos, vértices, bounding box, hermeticidad)
-              ├── Evaluación de reglas técnicas por perfil
-              └── Agregador de veredicto Fail-Closed ("El Contrato Dispone")
+```mermaid
+graph TD
+    User["Cliente Web / Visor 3D<br/>(Vue 3 + Three.js / model-viewer)"]
+    Gateway["FastAPI Conformance Gateway<br/>(Python 3.12 / Pydantic v2)"]
+    AISubsystem["Subsistema IA<br/>('La IA Propone': Random Forest / LLM)"]
+    GeoEngine["Motor Geométrico Determinista<br/>('El Contrato Dispone': Trimesh + NumPy)"]
+    VerdictAggregator["Agregador Fail-Closed<br/>(Dual-Contract Reporting)"]
+
+    User -->|Subida GLB/glTF + Metadatos| Gateway
+    Gateway --> AISubsystem
+    Gateway --> GeoEngine
+    AISubsystem -->|Propuesta de categoría| VerdictAggregator
+    GeoEngine -->|Métricas exactas B-Rep / Malla| VerdictAggregator
+    VerdictAggregator -->|Veredicto vinculante| User
 ```
+
+### Matriz de Decisiones y Trade-Offs
+
+| Dimensión | Decisión adoptada | Alternativa descartada | Razón técnica |
+|---|---|---|---|
+| **Gobernanza** | Puerta determinista estricta (*Fail-Closed*): la IA nunca anula el contrato | Votación por pesos o clasificación puramente probabilística | En fabricación y comercio industrial, un modelo 3D con normales invertidas o escala errónea destruye la cadena operativa aunque la IA esté al 99 % segura. |
+| **Motor Geométrico** | Trimesh + NumPy en memoria en el mismo proceso | Blender headless / Subproceso CLI externo | Latencia sub-100 ms frente a más de 3 segundos de arranque de proceso en frío; menor consumo de memoria. |
+| **Integridad de Entrada** | Validación binaria de cabeceras glTF/GLB e IEEE-754 antes de instanciar WebGL | Confianza en extensión de archivo o parser del navegador | Protección contra cuelgues del hilo de renderizado y denegación de servicio por buffers corruptos. |
+
 
 ---
 
